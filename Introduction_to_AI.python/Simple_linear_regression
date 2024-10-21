@@ -1,0 +1,43 @@
+# In simple linear regression, we model the relationship between two variables by fitting a straight line. The equation is:
+
+# y=mx+b
+
+# Where
+# y is the dependent variable (what we want to predict),
+# x is the independent variable (the feature),
+# m is the slope (the rate of change),
+# b is the y-intercept (where the line crosses the y-axis).
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Sample data (X: feature, Y: target)
+X = np.array([[1], [2], [3], [4], [5]])  # Independent variable (feature)
+Y = np.array([5, 7, 9, 11, 13])  # Dependent variable (target)
+
+# Create the model
+model = LinearRegression()
+
+# Fit the model
+model.fit(X, Y)
+
+# Predict values
+Y_pred = model.predict(X)
+
+# Plotting the results
+plt.scatter(X, Y, color='blue', label='Original Data')
+plt.plot(X, Y_pred, color='red', label='Fitted Line')
+plt.title('Simple Linear Regression')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.legend()
+plt.show()
+
+# Display the slope (m) and intercept (b)
+print(f"Slope (m): {model.coef_[0]}")
+print(f"Intercept (b): {model.intercept_}")
+
+# Fits a simple linear regression model to the data.
+# Plots the original data points and the fitted regression line.
+# Prints the slope and intercept values.
